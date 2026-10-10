@@ -85,7 +85,7 @@ func _handle_collision(collision: KinematicCollision2D) -> void:
 
 	# Paddle bounce: influence direction by where the ball hits the paddle.
 	if collider.is_in_group("paddle"):
-		var paddle_half: float = collider.collision_half_width if "collision_half_width" in collider else 60.0
+		var paddle_half: float = collider.half_width if "half_width" in collider else 64.0
 		var offset := clampf((global_position.x - collider.global_position.x) / paddle_half, -1.0, 1.0)
 		# Map offset to an angle between roughly -60 and +60 degrees from vertical.
 		var angle := deg_to_rad(offset * 60.0)
